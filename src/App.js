@@ -2,15 +2,21 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
+const STARTING_POINT = [121.375433, 31.176205]
 class App extends Component {
+  componentDidMount() {
+    var map = new window.AMap.Map('map-container', {
+      center: STARTING_POINT,
+      zoom: 16,
+    })
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Block Guide</h1>
-        </header>
         <p className="App-intro">TechCrunch Shanghai 2017</p>
+        <section>
+          <div id="map-container" style={{ width: 'auto', height: 800 }} />
+        </section>
       </div>
     )
   }
