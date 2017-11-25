@@ -1,11 +1,59 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/shop/shop",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "weui/example/index",
+
+    "weui/example/button/button",
+    "weui/example/list/list",
+    "weui/example/input/input",
+    "weui/example/slider/slider",
+    "weui/example/uploader/uploader",
+
+    "weui/example/article/article",
+    "weui/example/badge/badge",
+    "weui/example/flex/flex",
+    "weui/example/footer/footer",
+    "weui/example/gallery/gallery",
+    "weui/example/grid/grid",
+    "weui/example/icons/icons",
+    "weui/example/loadmore/loadmore",
+    "weui/example/panel/panel",
+    "weui/example/preview/preview",
+    "weui/example/progress/progress",
+
+    "weui/example/actionsheet/actionsheet",
+    "weui/example/dialog/dialog",
+    "weui/example/msg/msg",
+    "weui/example/msg/msg_success",
+    "weui/example/msg/msg_fail",
+    "weui/example/picker/picker",
+    "weui/example/toast/toast",
+
+    "weui/example/navbar/navbar",
+    "weui/example/tabbar/tabbar",
+
+    "weui/example/searchbar/searchbar"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "weui/example/index",
+        "text": "UI"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "日志"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
