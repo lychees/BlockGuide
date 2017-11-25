@@ -32,7 +32,7 @@
   height: 250rpx;
   display: flex;
   align-items: center;
-  border-bottom: 1rpx solid #ECECEC; 
+  border-bottom: 1rpx solid #ECECEC;
 }
 .order-content-restaurantImg{
   width: 200rpx;
@@ -63,7 +63,7 @@
 }
 .order-footer-goToComment,.order-footer-orderAgain{
   margin-top: 15rpx;
-  margin-right: 40rpx; 
+  margin-right: 40rpx;
   height: 70rpx;
   line-height: 70rpx;
   width: 200rpx;
@@ -74,5 +74,5 @@
   margin-right: 20rpx;
 }
 .order-footer-goToComment{
-  background: #FFD161;
+  background: #04be02;
 }

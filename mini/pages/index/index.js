@@ -148,7 +148,7 @@ Page({
     this.loadPoi({
       keywords: e.keywords,
     })
-    // wx.navigateTo({ url: '/pages/purchase/purchase' })
+    // wx.navigateTo({ url: '/pages/menu/menu' })
   },
   getLngLat: function(cb) {
     this.mapCtx = wx.createMapContext('map')

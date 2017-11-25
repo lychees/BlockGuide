@@ -13,7 +13,7 @@
   text-align: center;
 }
 .header .title.selected{
-  border-bottom: 7rpx solid #FFd161;
+  border-bottom: 7rpx solid #04be02;
   font-weight: 600;
 }
 .swiper{
@@ -46,7 +46,7 @@
   text-align: center;
   line-height: 100rpx;
   font-size: 28rpx;
-  border-bottom: 1rpx dashed #ECECEC; 
+  border-bottom: 1rpx dashed #ECECEC;
 }
 .selected.menu::before{
   content: "";
@@ -55,7 +55,7 @@
   top: 32rpx;
   height: 36rpx;
   width: 7rpx;
-  background: #FFD161;
+  background: #04be02;
 }
 .foodList{
   flex: 1;
@@ -75,7 +75,7 @@
   display: flex;
   align-items: center;
   height: 170rpx;
-  border-bottom: 1rpx solid #ECECEC; 
+  border-bottom: 1rpx solid #ECECEC;
   background: white;
 }
 .food::before{
@@ -120,13 +120,13 @@
   width: 40rpx;
   height: 40rpx;
   border-radius: 30rpx;
-  text-align: center; 
+  text-align: center;
 }
 .food-numb .add{
   font-size: 35rpx;
   line-height: 37rpx;
   font-weight: 700;
-  background: #FFD161;
+  background: #04be02;
   margin-left: 15rpx;
 }
 .food-numb .remove{
@@ -136,7 +136,7 @@
   font-weight: 500;
   box-sizing: border-box;
   border: 2rpx;
-  border-style: solid; 
+  border-style: solid;
   border-color: #B0B0B0;
   color: #B0B0B0;
 }
@@ -190,14 +190,14 @@
    line-height: 40rpx;
 }
 .footer.active .pay{
-  background: #FFD161;
+  background: #04be02;
   color: black;
 }
 .commentPage-header{
   height: 190rpx;
   display: flex;
   padding-bottom: 30rpx;
-  border-bottom: 20rpx solid #F4F4F4; 
+  border-bottom: 20rpx solid #F4F4F4;
 }
  .commentPage-score{
   flex: 4;
@@ -220,7 +220,7 @@
   color: #E8E8E8;
 }
 .commentPage-rating{
-  padding-top: 20rpx; 
+  padding-top: 20rpx;
   flex: 6;
   display: flex;
   flex-direction: column;
@@ -241,7 +241,7 @@
 .commentPage-category{
   display: flex;
   flex-wrap: wrap;
-  border-bottom: 20rpx solid #F4F4F4; 
+  border-bottom: 20rpx solid #F4F4F4;
 }
 .commentPage-category .category-item{
   height: 40rpx;
