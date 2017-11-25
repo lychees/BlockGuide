@@ -1,3 +1,6 @@
+/**
+ * INITIAL VERSION, NOT USED ANYMORE. Please see /mini folder for our latest code
+ */
 import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
