@@ -63,7 +63,7 @@ Page({
   makertap: function(e) {
     var id = e.markerId
     var that = this
-    that.showMarkerInfo(poisData, markersData,  id)
+    that.showMarkerInfo(poisData, markersData, id)
     that.changeMarkerColor(markersData, id)
   },
   loadPoi: function({ location, keywords }) {
@@ -78,7 +78,7 @@ Page({
         markersData.forEach(function(item, index) {
           var star = Math.floor(Math.random() * 5) + 1
           var auth = false
-          if(!dataMap[poisData[item.id].id]){
+          if (!dataMap[poisData[item.id].id]) {
             // console.log(poisData[item.id].id)
             auth = Boolean(Math.round(Math.random()))
             dataMap[poisData[item.id].id] = {
@@ -88,8 +88,8 @@ Page({
               isAuthen: auth,
               iconPath: auth ? '../../img/xin.png' : '../../img/marker.ng',
             }
-          }else{
-              auth = dataMap[poisData[item.id].id].isAuthen
+          } else {
+            auth = dataMap[poisData[item.id].id].isAuthen
           }
           item.auth = auth
           markers_new.push(marketData(item))
@@ -247,7 +247,7 @@ Page({
       textData: {
         name: markersData[i].name,
         desc: markersData[i].address,
-        id: markersData[i].id,
+        id: data[i].id,
         star: dataMap[data[i].id].star,
         commentNum: dataMap[data[i].id].commentNum,
         isAuthen: dataMap[data[i].id].isAuthen,
@@ -267,6 +267,7 @@ Page({
   },
   bindNavigateMenu: function(e) {
     if (this.data.textData.isAuthen) {
+      debugger
       wx.navigateTo({
         url: `../menu/menu?id=${this.data.textData.id}`,
       })
