@@ -18,9 +18,11 @@ Page({
       wx.setStorageSync('balance', balance);
     }
 
+    const amount = parseFloat(e.amount);
+
     this.setData({
-      amount:  parseFloat(e.amount),
-      credit: 0,
+      amount,
+      credit: Math.min(amount, balance),
       balance: balance,
     })
   },
