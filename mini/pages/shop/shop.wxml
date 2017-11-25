@@ -1,0 +1,36 @@
+<!--pages/order/order.wxml-->
+<!--head -->
+
+<view class="header">
+  <image src="{{shopInfo.headerUrl}}"></image>
+</view>
+
+<view class="info-area">
+  <view class="name">
+    <text>鸟藏日料</text>
+  </view>
+
+  <view class="actions">
+    <button>立即点餐</button>
+    <button>优惠买单</button>
+    <button>领取会员卡</button>
+  </view>
+
+  <view class="info-detail">
+    <view>
+      <text>{{shopInfo.location}}</text>
+    </view>
+    <view>
+      <text>{{shopInfo.phone}}</text>
+    </view>
+    <view>
+      <text>{{shopInfo.bussinessTime}}</text>
+    </view>
+  </view>
+
+  <view class="description">
+    <text>
+      {{shopInfo.description}}
+    </text>
+  </view>
+</view>

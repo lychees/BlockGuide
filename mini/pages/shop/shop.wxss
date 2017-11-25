@@ -1,0 +1,44 @@
+.header {
+  height: 200px;
+  /* background-color: rgb(251,207,94); */
+}
+
+.info-area {
+  padding: 10px;
+}
+
+.info-area .actions {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+}
+
+.info-area .actions button {
+  width: 30%;
+  font-size: 0.8em;
+  background: white;
+  color: rgb(251,207,94);
+  border: solid 1px rgb(251,207,94);
+  border-radius: 4px;
+}
+
+.info-area .actions button:first {
+  color: white;
+  background: rgb(241,207,94);
+  border-radius: 4px;
+}
+
+.info-area .info-detail {
+  color: #ccc;
+  font-size: 0.6em;
+}
+
+.info-area .info-detail view {
+  padding: 3px;
+}
+
+.description {
+  font-size: 0.8em;
+}
