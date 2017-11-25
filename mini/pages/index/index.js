@@ -267,7 +267,6 @@ Page({
   },
   bindNavigateMenu: function(e) {
     if (this.data.textData.isAuthen) {
-      debugger
       wx.navigateTo({
         url: `../menu/menu?id=${this.data.textData.id}`,
       })

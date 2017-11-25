@@ -36,7 +36,7 @@
     </scroll-view>
     <view class="footer {{cost!=0?'active':''}}">
       <view class="howMuch">
-        <view class="img" style="background:{{cost!=0?'#04be02':'#E7E7E7'}};">
+        <view class="img" style="background:{{cost!=0?'#ccc':'#E7E7E7'}};">
           <image src="/pages/images/trolley.png" style="width:60rpx;height:60rpx;"></image>
         </view>
         <view class="cost" hidden="{{cost==0}}">￥{{cost}}</view>
