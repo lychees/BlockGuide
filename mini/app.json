@@ -4,6 +4,7 @@
     "pages/index/user",
     "pages/purchase/input",
     "pages/purchase/purchase",
+    "pages/purchase/rate",
     "pages/shop/shop",
     "pages/logs/logs",
     "pages/menu/menu",
@@ -11,13 +12,11 @@
     "pages/my/my",
     "pages/home/home",
     "weui/example/index",
-
     "weui/example/button/button",
     "weui/example/list/list",
     "weui/example/input/input",
     "weui/example/slider/slider",
     "weui/example/uploader/uploader",
-
     "weui/example/article/article",
     "weui/example/badge/badge",
     "weui/example/flex/flex",
@@ -29,7 +28,6 @@
     "weui/example/panel/panel",
     "weui/example/preview/preview",
     "weui/example/progress/progress",
-
     "weui/example/actionsheet/actionsheet",
     "weui/example/dialog/dialog",
     "weui/example/msg/msg",
@@ -37,10 +35,8 @@
     "weui/example/msg/msg_fail",
     "weui/example/picker/picker",
     "weui/example/toast/toast",
-
     "weui/example/navbar/navbar",
     "weui/example/tabbar/tabbar",
-
     "weui/example/searchbar/searchbar"
   ],
   "tabBar": {
@@ -51,7 +47,6 @@
         "selectedIconPath": "img/map_selected.png",
         "text": "首页"
       },
-
       {
         "pagePath": "pages/index/user",
         "iconPath": "img/user.png",
