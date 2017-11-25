@@ -1,3 +1,21 @@
+
+<view wx:if="{{!isReady}}">
+<view class="page__bd">
+        <view class="weui-loadmore">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>
+        <view class="weui-loadmore weui-loadmore_line">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+        </view>
+        <view class="weui-loadmore weui-loadmore_line weui-loadmore_dot">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+        </view>
+    </view>
+</view>
+
+<view wx:if="{{isReady}}">
+
 <view class="section">
   <input data-city="{{city}}" data-longitude="{{longitude}}" data-latitude="{{latitude}}" bindtouchstart="bindInput" placeholder="搜索"/>
 </view>
@@ -9,5 +27,10 @@
 </view>
 <view class="map_text">
   <text class="h1">{{textData.name}}</text>
+<view wx:if="{{textData.isAuthen}}">
+ <text class="h1">{{textData.star}}   评论数 {{textData.commentNum}}</text> 
+</view>
   <text>{{textData.desc}}</text>
+</view>
+
 </view>
