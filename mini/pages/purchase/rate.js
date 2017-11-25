@@ -1,3 +1,5 @@
+const { request } = require('../../libs/promise')
+
 Page({
   data: {
     comment: '',
@@ -14,18 +16,25 @@ Page({
         icon: 'loading',
         duration: waitTime,
       })
-      setTimeout(() => {
-        wx.showToast({
-          title: '评价成功',
-          icon: 'success',
-          duration: 3000,
-          success: () => {
-            setTimeout(() => {
-              wx.switchTab({ url: '/pages/index/index' })
-            }, 1500)
-          },
-        })
-      }, waitTime)
+      // send request
+      request({
+        path: '/ratings',
+        method: 'POST',
+        data: this.data,
+        success: () => {
+          wx.showToast({
+            title: '评价成功',
+            icon: 'success',
+            duration: 3000,
+            success: () => {
+              setTimeout(() => {
+                wx.switchTab({ url: '/pages/index/index' })
+              }, 1500)
+            },
+          })
+        },
+        timeout: 5000,
+      })
     }
   },
 })

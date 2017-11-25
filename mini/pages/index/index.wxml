@@ -37,7 +37,7 @@
 
                 <view class="weui-media-box__hd weui-media-box__hd_in-appmsg auth-container">
                     <view wx:if="{{textData.isAuthen}}" class="weui-media-box__desc">
-                        <text>{{textData.star}}</text>
+                        <text style="color:#eeb174;">{{textData.star}}</text>
                         <text>评论数 {{textData.commentNum}}</text>
                     </view>
                     <view wx:if="{{!textData.isAuthen}}" class="weui-media-box__desc">
