@@ -22,7 +22,6 @@ Page({
     that.changeMarkerColor(markersData, id)
   },
   loadPoi: function({ location, keywords }) {
-
     var that = this
     var params = {
       iconPathSelected: '../../img/marker_checked.png',
@@ -32,16 +31,16 @@ Page({
         var poisData = data.poisData
         var markers_new = []
         markersData.forEach(function(item, index) {
-          var star = Math.floor(Math.random()*5) + 1
+          var star = Math.floor(Math.random() * 5) + 1
           var auth = Boolean(Math.round(Math.random()))
           dataMap[item.id] = {
-            star: '★★★★★☆☆☆☆☆'.slice(5 -star, 10 - star) + ": " + star,
-            commentNum: Math.floor(Math.random()*(1000+1)),
+            star: '★★★★★☆☆☆☆☆'.slice(5 - star, 10 - star) + ': ' + star,
+            commentNum: Math.floor(Math.random() * (1000 + 1)),
             starNum: star,
             isAuthen: auth,
             iconPath: auth
-            ? '../../img/marker.png'
-            : '../../img/mapicon_navi_s.ng',
+              ? '../../img/marker.png'
+              : '../../img/mapicon_navi_s.ng',
           }
           markers_new.push({
             id: item.id,
@@ -55,8 +54,8 @@ Page({
               : '../../img/mapicon_navi_s.png',
           })
           wx.setStorage({
-            key:"datamap",
-            data:dataMap
+            key: 'datamap',
+            data: dataMap,
           })
         })
         if (markersData.length > 0) {
@@ -104,19 +103,40 @@ Page({
     this.dataMap = wx.getStorage({
       key: 'datamap',
       success: function(res) {
-          console.log(res.data)
-      }
+        console.log(res.data)
+      },
     })
     this.setData({
-         isReady: true,
-        })
-    if(!dataMap){
+      isReady: true,
+    })
+    if (!dataMap) {
       dataMap = {}
     }
     this.loadPoi({
       keywords: e.keywords,
     })
     // wx.navigateTo({ url: '/pages/purchase/purchase' })
+  },
+  getLngLat: function(cb) {
+    this.mapCtx = wx.createMapContext('map')
+    this.mapCtx.getCenterLocation({
+      success: function(res) {
+        if (cb) cb(res)
+      },
+    })
+  },
+  bindRegionChange: function(e) {
+    if (e.type == 'end') {
+      this.getLngLat(res => {
+        this.loadPoi({
+          location: [res.latitude, res.longitude].join(','),
+        })
+      })
+    }
+    // var that = this
+    // that.loadPoi({
+    //   location: [res.latitude, res.longitude].join(','),
+    // })
   },
   bindOrient: function(e) {
     var that = this
@@ -171,23 +191,21 @@ Page({
   showMarkerInfo: function(data, i) {
     var that = this
     var star = Math.floor(Math.random() * 5) + 1
-    if(!dataMap[i]){
+    if (!dataMap[i]) {
       var auth = Boolean(Math.round(Math.random()))
       console.log(auth)
       dataMap[i] = {
-        star: '★★★★★☆☆☆☆☆'.slice(5 - star, 10 - star) + ": " + star,
+        star: '★★★★★☆☆☆☆☆'.slice(5 - star, 10 - star) + ': ' + star,
         starNum: star,
-        commentNum: Math.floor(Math.random()*(1000+1)),
+        commentNum: Math.floor(Math.random() * (1000 + 1)),
         isAuthen: auth,
         iconPath: auth
-        ? '../../img/marker.png'
-        : '../../img/mapicon_navi_s.png',
+          ? '../../img/marker.png'
+          : '../../img/mapicon_navi_s.png',
       }
       try {
         wx.setStorageSync('datamap', dataMap)
-      } catch (e) {
-
-      }
+      } catch (e) {}
     }
     that.setData({
       textData: {

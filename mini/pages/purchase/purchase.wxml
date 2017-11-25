@@ -2,12 +2,13 @@
     <view wx:if="{{stage==='paying'}}">
         <view class="page__hd">
         </view>
-        <view class="page__bd">
+        <view class="page__bd page__bd_spacing">
             <view class="icon-box">
                 <icon type="waiting" size="93"></icon>
                 <view class="icon-box__ctn">
                     <view class="icon-box__title">付费中</view>
                     <view class="icon-box__desc">等待入链...</view>
+                    <view class="icon-box__desc">请勿返回或重试</view>
                 </view>
             </view>
         </view>
@@ -15,7 +16,7 @@
     <view wx:if="{{stage==='paid'}}">
         <view class="page__hd">
         </view>
-        <view class="page__bd">
+        <view class="page__bd page__bd_spacing">
             <view class="icon-box">
                 <icon type="success" size="93"></icon>
                 <view class="icon-box__ctn">
@@ -25,6 +26,17 @@
                         <view>{{point}} 积分</view>
                     </view>
                 </view>
+            </view>
+        </view>
+        <view class="weui-btn-area">
+            <view class="button-sp-area">
+                <!-- <navigator url="/pages/index/index"> -->
+                <button class="weui-btn" type="default" bindtap="bindNavigateHome">返回首页</button>
+                <!-- </navigator> -->
+                <!-- </navigator> -->
+                <!-- <navigator url="/pages/rate/rate"> -->
+                <button class="weui-btn" type="primary" bindtap="bindRate">评分</button>
+                <!-- </navigator> -->
             </view>
         </view>
     </view>
