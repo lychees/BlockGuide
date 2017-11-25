@@ -1,10 +1,6 @@
-function isNumeric(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n)
-}
 Page({
   data: {
     comment: '',
-    submitted: false,
   },
   onLoad: function (e) {
 
@@ -13,10 +9,17 @@ Page({
     this.setData({comment: e.detail.value});
   },
   bindSubmit(e) {
-    console.log(this.data.comment);
-    this.setData({submitted: true});
-    setTimeout(() => {
-      wx.switchTab({ url: '/pages/index/index' });
-    }, 200);
+    if (this.data.comment) {
+      wx.showToast({
+        title: '评价成功',
+        icon: 'success',
+        duration: 3000,
+        success: () => {
+          setTimeout(() => {
+            wx.switchTab({ url: '/pages/index/index' });
+          }, 1500);
+        }
+      }); 
+    }
   }
 })

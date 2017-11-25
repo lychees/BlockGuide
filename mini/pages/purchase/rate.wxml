@@ -16,12 +16,5 @@
       <button bindtap="bindSubmit" class="weui-btn weui-btn_primary" href="javascript:">提交</button>
   </view>
 
-
-    <view wx:if="{{submitted}}" class="weui-mask_transparent"></view>
-    <view wx:if="{{submitted}}" class="weui-toast">
-        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
-        <p class="weui-toast__content">已完成</p>
-    </view>
-
     </view>
 </view>
