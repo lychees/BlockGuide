@@ -20,13 +20,15 @@
           <view class="weui-label">使用积分</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" bindinput="bindInputChange2" placeholder="" value="{{credit || '-'}}" />
+          <input class="weui-input" bindinput="bindInputChange2" placeholder="" value="{{credit}}" />
         </view>
         <view wx-if="{{creditHasError}}" class="weui-cell__ft">
           <icon type="warn" size="23" color="#E64340"></icon>
         </view>
       </view> 
     </view>
+
+    <view class="weui-cells__tips">剩余可使用积分为{{balance}}</view>
 
     <view class="weui-btn-area">
       <button class="weui-btn" type="primary" bindtap="pay" disabled="{{!amount || amountHasError}}">确定支付</button>

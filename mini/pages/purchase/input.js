@@ -7,12 +7,21 @@ Page({
     creditHasError: false,
     amount: 0,
     credit: 0,
+    balance: 0,
     isAgree: false,
   },
   onLoad: function(e) {
+    let balance = wx.getStorageSync('balance');
+    if (!balance) {
+      balance = 0.2 + Math.random() * 0.8;
+      balance = parseInt(balance * 100) / 100;
+      wx.setStorageSync('balance', balance);
+    }
+
     this.setData({
       amount:  parseFloat(e.amount),
       credit: 0,
+      balance: balance,
     })
   },
   bindInputChange: function(e) {
@@ -39,7 +48,7 @@ Page({
       this.setData({
         creditHasError: false,
       })
-    } else if (!isNumeric(v) || parseInt(v) > this.data.amount) {
+    } else if (!isNumeric(v) || parseFloat(v) > this.data.amount || parseFloat(v) > this.data.balance) {
       this.setData({
         creditHasError: '请输入正确的金额',
       })
@@ -56,8 +65,14 @@ Page({
     })
   },
   pay: function(e) {
-    wx.navigateTo({
-      url: '/pages/purchase/purchase?amount=' + this.data.amount,
-    })
+    let balance = this.data.balance;
+    balance -= this.data.credit;
+    balance = parseInt(balance * 100) / 100;
+    if (balance >= 0) {
+      wx.setStorageSync('balance', balance);
+      wx.navigateTo({
+        url: '/pages/purchase/purchase?amount=' + this.data.amount,
+      });
+    }
   },
 })
