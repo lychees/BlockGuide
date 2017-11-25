@@ -1,20 +1,21 @@
 <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
 
-<view class="page__bd">
-<view class="weui-cells weui-cells_form">
-    <view class="weui-cell">
-        <view class="weui-cell__bd">
-            <textarea class="weui-textarea" placeholder="请输入文本" rows="3" bindinput="bindInputChange"></textarea>
-            <view class="weui-textarea-counter"><span>0</span>/200</view>
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_form">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="请输入文本" rows="3" bindinput="bindInputChange"></textarea>
+                    <view class="weui-textarea-counter">
+                        <span>0</span>/200</view>
+                </view>
+            </view>
         </view>
-    </view>
-</view>
 
-<multiple-rate rate="4"></multiple-rate>
+        <multiple-rate rate="4"></multiple-rate>
 
-  <view class="weui-btn-area">
-      <button bindtap="bindSubmit" class="weui-btn weui-btn_primary" href="javascript:">提交</button>
-  </view>
+        <view class="weui-btn-area">
+            <button bindtap="bindSubmit" class="weui-btn weui-btn_default" href="javascript:">提交</button>
+        </view>
 
     </view>
 </view>
