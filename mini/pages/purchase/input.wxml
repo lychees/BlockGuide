@@ -14,6 +14,18 @@
           <icon type="warn" size="23" color="#E64340"></icon>
         </view>
       </view>
+
+       <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">使用积分</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" bindinput="bindInputChange2" placeholder="" value="{{credit || '-'}}" />
+        </view>
+        <view wx-if="{{creditHasError}}" class="weui-cell__ft">
+          <icon type="warn" size="23" color="#E64340"></icon>
+        </view>
+      </view> 
     </view>
 
     <view class="weui-btn-area">
