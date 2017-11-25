@@ -260,4 +260,17 @@ Page({
       markers: markers,
     })
   },
+  bindNavigateMenu: function(e) {
+    if (this.data.textData.isAuthen) {
+      wx.navigateTo({
+        url: `../menu/menu?id=${this.data.textData.id}`,
+      })
+    } else {
+      wx.showToast({
+        title: '商家未加入中信联盟认证',
+        image: '/img/warning.png',
+        duration: 3000,
+      })
+    }
+  },
 })

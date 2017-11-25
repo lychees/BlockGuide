@@ -1,7 +1,7 @@
 <view class="page">
 
   <view class="page__hd">
-    <view class="page__desc">用户通过信联盟消费记录</view>
+    <view class="page__desc">用户通过中信联盟消费记录</view>
   </view>
   <view class="page__bd">
     <view class="icon-box">
