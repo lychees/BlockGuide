@@ -6,13 +6,57 @@ var markersData = []
 var key = config.Config.key
 var myAmapFun = new amapFile.AMapWX({ key: key })
 
+const marketData = (item, marked) => {
+  let icons = {
+    auth: {
+      iconPath: '../../img/xin.png',
+      height: 32,
+      width: 32,
+    },
+    normal: {
+      iconPath: '../../img/marker.png',
+      height: item.height,
+      width: item.width,
+    },
+    marked: {
+      iconPath: '../../img/marker_checked.png',
+      height: item.height,
+      width: item.width,
+    },
+    authMarked: {
+      iconPath: '../../img/xin.png',
+      height: 48,
+      width: 48,
+    },
+  }
+  let icon = icons.normal
+  if (item.auth) {
+    icon = icons.auth
+  }
+  if (marked) {
+    if (item.auth) {
+      icon = icons.authMarked
+    } else {
+      icon = icons.marked
+    }
+  }
+  return Object.assign(
+    {
+      id: item.id,
+      latitude: item.latitude,
+      longitude: item.longitude,
+      auth: item.auth,
+    },
+    icon
+  )
+}
 Page({
   data: {
     isReady: false,
     markers: [],
     latitude: '',
     longitude: '',
-    textData: {},
+    textData: undefined,
     city: '',
   },
   makertap: function(e) {
@@ -38,21 +82,10 @@ Page({
             commentNum: Math.floor(Math.random() * (1000 + 1)),
             starNum: star,
             isAuthen: auth,
-            iconPath: auth
-              ? '../../img/marker.png'
-              : '../../img/mapicon_navi_s.ng',
+            iconPath: auth ? '../../img/xin.png' : '../../img/marker.ng',
           }
-          markers_new.push({
-            id: item.id,
-            latitude: item.latitude,
-            longitude: item.longitude,
-            iconPath: item.iconPath,
-            width: item.width,
-            height: item.height,
-            iconPath: auth
-              ? '../../img/marker.png'
-              : '../../img/mapicon_navi_s.png',
-          })
+          item.auth = auth
+          markers_new.push(marketData(item))
           wx.setStorage({
             key: 'datamap',
             data: dataMap,
@@ -73,7 +106,7 @@ Page({
               longitude: markersData[0].longitude,
             })
           }
-          that.showMarkerInfo(markersData, 0)
+          // that.showMarkerInfo(markersData, 0)
         } else {
           that.setData({
             textData: {
@@ -199,9 +232,7 @@ Page({
         starNum: star,
         commentNum: Math.floor(Math.random() * (1000 + 1)),
         isAuthen: auth,
-        iconPath: auth
-          ? '../../img/marker.png'
-          : '../../img/mapicon_navi_s.png',
+        iconPath: auth ? '../../img/xin.png.png' : '../../img/marker.png',
       }
       try {
         wx.setStorageSync('datamap', dataMap)
@@ -222,19 +253,7 @@ Page({
     var that = this
     var markers = []
     for (var j = 0; j < data.length; j++) {
-      if (j == i) {
-        data[j].iconPath = '../../img/marker_checked.png'
-      } else {
-        data[j].iconPath = '../../img/marker.png'
-      }
-      markers.push({
-        id: data[j].id,
-        latitude: data[j].latitude,
-        longitude: data[j].longitude,
-        iconPath: data[j].iconPath,
-        width: data[j].width,
-        height: data[j].height,
-      })
+      markers.push(marketData(data[j], j == i))
     }
     that.setData({
       markers: markers,

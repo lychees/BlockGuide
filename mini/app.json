@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/purchase/input",
     "pages/index/index",
+    "pages/index/user",
+    "pages/purchase/input",
     "pages/purchase/purchase",
     "pages/shop/shop",
     "pages/logs/logs",
@@ -46,15 +47,16 @@
     "list": [
       {
         "pagePath": "pages/index/index",
+        "iconPath": "img/map.png",
+        "selectedIconPath": "img/map_selected.png",
         "text": "首页"
       },
+
       {
-        "pagePath": "weui/example/index",
-        "text": "UI"
-      },
-      {
-        "pagePath": "pages/logs/logs",
-        "text": "日志"
+        "pagePath": "pages/index/user",
+        "iconPath": "img/user.png",
+        "selectedIconPath": "img/user_selected.png",
+        "text": "用户中心"
       }
     ]
   },

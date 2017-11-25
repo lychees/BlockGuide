@@ -1,6 +1,5 @@
-
 <view wx:if="{{!isReady}}">
-<view class="page__bd">
+    <view class="page__bd">
         <view class="weui-loadmore">
             <view class="weui-loading"></view>
             <view class="weui-loadmore__tips">正在加载</view>
@@ -16,37 +15,39 @@
 
 <view wx:if="{{isReady}}">
 
-<view class="section">
-  <input data-city="{{city}}" data-longitude="{{longitude}}" data-latitude="{{latitude}}" bindtouchstart="bindInput" placeholder="搜索"
-  />
-</view>
-<view class="map_container">
-  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}"
-    bindmarkertap="makertap" bindregionchange="bindRegionChange"></map>
-</view>
-<view class="controls">
-  <button bindtap="bindOrient">Orient</button>
-</view>
-<view class="map_text">
-    <view class="weui-panel__bd">
-        <navigator url="../menu/menu" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-
-            <view class="weui-media-box__hd weui-media-box__bd_in-appmsg">
-                <view class="weui-media-box__title">{{textData.name}}</view>
-                <view class="weui-media-box__desc">{{textData.desc}}</view>
-
-            </view>
-
-            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg auth-container">
-                <view wx:if="{{textData.isAuthen}}" class="weui-media-box__desc">
-                    <text>{{textData.star}}</text>
-                    <text>评论数 {{textData.commentNum}}</text>
-                </view>
-                <button></button>
-            </view>
-
-        </navigator>
+    <view class="section">
+        <input data-city="{{city}}" data-longitude="{{longitude}}" data-latitude="{{latitude}}" bindtouchstart="bindInput" placeholder="搜索"
+        />
     </view>
-</view>
+    <view class="map_container">
+        <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}"
+            bindmarkertap="makertap" bindregionchange="bindRegionChange"></map>
+    </view>
+    <!-- <view class="controls">
+        <button bindtap="bindOrient">Orient</button>
+    </view> -->
+    <view class="map_text" wx-if="{{textData}}">
+        <view class="weui-panel__bd">
+            <navigator url="../menu/menu" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+
+                <view class="weui-media-box__hd weui-media-box__bd_in-appmsg">
+                    <view class="weui-media-box__title">{{textData.name}}</view>
+                    <view class="weui-media-box__desc">{{textData.desc}}</view>
+
+                </view>
+
+                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg auth-container">
+                    <view wx:if="{{textData.isAuthen}}" class="weui-media-box__desc">
+                        <text>{{textData.star}}</text>
+                        <text>评论数 {{textData.commentNum}}</text>
+                    </view>
+                    <view wx:if="{{!textData.isAuthen}}" class="weui-media-box__desc">
+                        <text>未认证</text>
+                    </view>
+                </view>
+
+            </navigator>
+        </view>
+    </view>
 
 </view>

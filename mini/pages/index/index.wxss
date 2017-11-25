@@ -8,8 +8,9 @@
   box-sizing: border-box;
 }
 .auth-container {
-  width: 85px;
+  width: 75px;
   height: auto;
+  margin: 0 10px;
 }
 .section{
   height: 30px;
@@ -26,7 +27,7 @@
 .map_container{
   position: absolute;
   top: 42px;
-  bottom: 80px;
+  bottom: 0px;
   left: 0;
   right: 0;
 }
