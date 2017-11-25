@@ -226,7 +226,6 @@ Page({
     var star = Math.floor(Math.random() * 5) + 1
     if (!dataMap[i]) {
       var auth = Boolean(Math.round(Math.random()))
-      console.log(auth)
       dataMap[i] = {
         star: '★★★★★☆☆☆☆☆'.slice(5 - star, 10 - star) + ': ' + star,
         starNum: star,
@@ -236,7 +235,9 @@ Page({
       }
       try {
         wx.setStorageSync('datamap', dataMap)
-      } catch (e) {}
+      } catch (e) {
+        throw e
+      }
     }
     that.setData({
       textData: {
