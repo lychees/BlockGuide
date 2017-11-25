@@ -10,17 +10,18 @@
     {{commentNum}}
     </view>
 </view>
-<view class="commentPage-category">
+
+
+ <view class="weui-panel weui-panel_access">
+      <!-- <view class="weui-panel__hd">文字组合列表</view> -->
+      <view class="weui-panel__bd">
+
   <view wx:for="{{categoryList}}" wx:key="">
-    <view class="food">
-          <view class="food-info">
-            <view class="name">{{item.content}}</view>
-            <view class="sales">用户:{{item.name}}
-            </view>
-            <view class="sales">{{item.time}}</view>
-          </view>
-          
-        </view>
+      <view class="weui-media-box weui-media-box_text">
+          <view class="weui-media-box__title weui-media-box__title_in-text">{{item.content}}</view>
+          <view class="weui-media-box__desc">用户:{{item.name}}</view>
+      </view>
   </view>
+</view>
 </view>
 </template>
