@@ -26,11 +26,25 @@
   <button bindtap="bindOrient">Orient</button>
 </view>
 <view class="map_text">
-  <text class="h1">{{textData.name}}</text>
-<view wx:if="{{textData.isAuthen}}">
- <text class="h1">{{textData.star}}   评论数 {{textData.commentNum}}</text> 
-</view>
-  <text>{{textData.desc}}</text>
+    <view class="weui-panel__bd">
+        <navigator url="../menu/menu" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+
+            <view class="weui-media-box__hd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">{{textData.name}}</view>
+                <view class="weui-media-box__desc">{{textData.desc}}</view>
+
+            </view>
+
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg auth-container">
+                <view wx:if="{{textData.isAuthen}}" class="weui-media-box__desc">
+                    <text>{{textData.star}}</text>
+                    <text>评论数 {{textData.commentNum}}</text>
+                </view>
+                <button></button>
+            </view>
+
+        </navigator>
+    </view>
 </view>
 
 </view>

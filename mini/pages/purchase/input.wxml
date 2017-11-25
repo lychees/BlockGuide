@@ -8,7 +8,7 @@
           <view class="weui-label">金额</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" bindinput="bindInputChange" placeholder="请向服务员咨询金额" />
+          <input class="weui-input" bindinput="bindInputChange" placeholder="请向服务员咨询金额" value="{{amount || '-'}}" disabled="true" />
         </view>
         <view wx-if="{{amountHasError}}" class="weui-cell__ft">
           <icon type="warn" size="23" color="#E64340"></icon>

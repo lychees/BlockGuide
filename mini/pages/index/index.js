@@ -5,6 +5,7 @@ var dataMap = {}
 var markersData = []
 var key = config.Config.key
 var myAmapFun = new amapFile.AMapWX({ key: key })
+
 Page({
   data: {
     isReady: false,
@@ -21,7 +22,7 @@ Page({
     that.changeMarkerColor(markersData, id)
   },
   loadPoi: function({ location, keywords }) {
-    
+
     var that = this
     var params = {
       iconPathSelected: '../../img/marker_checked.png',
@@ -104,7 +105,7 @@ Page({
       key: 'datamap',
       success: function(res) {
           console.log(res.data)
-      } 
+      }
     })
     this.setData({
          isReady: true,
@@ -115,7 +116,7 @@ Page({
     this.loadPoi({
       keywords: e.keywords,
     })
-    wx.navigateTo({ url: '/pages/purchase/purchase' })
+    // wx.navigateTo({ url: '/pages/purchase/purchase' })
   },
   bindOrient: function(e) {
     var that = this
@@ -171,7 +172,7 @@ Page({
     var that = this
     var star = Math.floor(Math.random() * 5) + 1
     if(!dataMap[i]){
-      var auth = Boolean(Math.round(Math.random())) 
+      var auth = Boolean(Math.round(Math.random()))
       console.log(auth)
       dataMap[i] = {
         star: '★★★★★☆☆☆☆☆'.slice(5 - star, 10 - star) + ": " + star,
@@ -184,7 +185,7 @@ Page({
       }
       try {
         wx.setStorageSync('datamap', dataMap)
-      } catch (e) {    
+      } catch (e) {
 
       }
     }
@@ -195,7 +196,7 @@ Page({
         star: dataMap[i].star,
         commentNum: dataMap[i].commentNum,
         isAuthen: dataMap[i].isAuthen,
-        starNum: dataMap[i].starNum, 
+        starNum: dataMap[i].starNum,
       },
     })
   },

@@ -5,9 +5,9 @@
     <block wx:for="{{swiperTitle}}" wx:key="">
       <view class="title {{index==currentPage?'selected':''}}" data-index="{{index}}"
       bindtap="turnPage">{{item.text}}</view>
-    </block> 
+    </block>
   </view>
-  <swiper class="swiper" current="{{currentPage}} 
+  <swiper class="swiper" current="{{currentPage}}
   bindchange="turnTitle">
     <swiper-item id="orderPage">
       <template is="orderPage" data="{{menu,selected,howMuch,cost,pullBar}}"/>

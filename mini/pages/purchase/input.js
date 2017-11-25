@@ -7,6 +7,11 @@ Page({
     amount: false,
     isAgree: false,
   },
+  onLoad: function(e) {
+    this.setData({
+      amount: parseFloat(e.amount)
+    })
+  },
   bindInputChange: function(e) {
     const v = e.detail.value
     if (!v) {
