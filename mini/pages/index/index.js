@@ -3,6 +3,7 @@ var config = require('../../libs/config.js')
 
 var dataMap = {}
 var markersData = []
+var poisData = []
 var key = config.Config.key
 var myAmapFun = new amapFile.AMapWX({ key: key })
 
@@ -62,7 +63,7 @@ Page({
   makertap: function(e) {
     var id = e.markerId
     var that = this
-    that.showMarkerInfo(markersData, id)
+    that.showMarkerInfo(poisData, markersData,  id)
     that.changeMarkerColor(markersData, id)
   },
   loadPoi: function({ location, keywords }) {
@@ -72,7 +73,7 @@ Page({
       iconPath: '../../img/marker.png',
       success: function(data) {
         markersData = data.markers
-        var poisData = data.poisData
+        poisData = data.poisData
         var markers_new = []
         markersData.forEach(function(item, index) {
           var star = Math.floor(Math.random() * 5) + 1
@@ -224,14 +225,12 @@ Page({
       url: url,
     })
   },
-  showMarkerInfo: function(data, i) {
+  showMarkerInfo: function(data, markersData, i) {
     var that = this
     var star = Math.floor(Math.random() * 5) + 1
-    console.log(data)
-    if (!dataMap[i]) {
-      
+    if (!dataMap[data[i].id]) {
       var auth = Boolean(Math.round(Math.random()))
-      dataMap[i] = {
+      dataMap[data[i].id] = {
         star: '★★★★★☆☆☆☆☆'.slice(5 - star, 10 - star) + ': ' + star,
         starNum: star,
         commentNum: Math.floor(Math.random() * (1000 + 1)),
@@ -246,13 +245,13 @@ Page({
     }
     that.setData({
       textData: {
-        name: data[i].name,
-        desc: data[i].address,
-        id: i,
-        star: dataMap[i].star,
-        commentNum: dataMap[i].commentNum,
-        isAuthen: dataMap[i].isAuthen,
-        starNum: dataMap[i].starNum,
+        name: markersData[i].name,
+        desc: markersData[i].address,
+        id: markersData[i].id,
+        star: dataMap[data[i].id].star,
+        commentNum: dataMap[data[i].id].commentNum,
+        isAuthen: dataMap[data[i].id].isAuthen,
+        starNum: dataMap[data[i].id].starNum,
       },
     })
   },
