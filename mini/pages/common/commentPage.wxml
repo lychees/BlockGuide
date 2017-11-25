@@ -2,21 +2,25 @@
 <view class="commentPage-header">
   <view class="commentPage-score">
     <view class="overall">综合评分</view>
-    4.3
+    {{starNum}}
     <view class="rate">商家综合好评率为76%</view>
   </view>
   <view class="commentPage-rating">
-    <view class="restaurant">商家评分
-      <view class="stars">★★★★★ 4</view>
-    </view>
-    <view class="distribute">配送评分
-      <view class="stars">★★★★★ 4.6</view>
-    </view>
+    <view class="overall">评论数</view>
+    {{commentNum}}
     </view>
 </view>
 <view class="commentPage-category">
-  <block wx:for="{{categoryList}}" wx:key="">
-    <view class="category-item">{{item.text}}({{item.numb}})</view>
-  </block>
+  <view wx:for="{{categoryList}}" wx:key="">
+    <view class="food">
+          <view class="food-info">
+            <view class="name">{{item.content}}</view>
+            <view class="sales">用户:{{item.name}}
+            </view>
+            <view class="sales">{{item.time}}</view>
+          </view>
+          
+        </view>
+  </view>
 </view>
 </template>

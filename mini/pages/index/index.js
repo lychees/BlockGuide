@@ -242,6 +242,7 @@ Page({
       textData: {
         name: data[i].name,
         desc: data[i].address,
+        id: i,
         star: dataMap[i].star,
         commentNum: dataMap[i].commentNum,
         isAuthen: dataMap[i].isAuthen,

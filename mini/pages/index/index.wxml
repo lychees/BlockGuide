@@ -14,7 +14,6 @@
 </view>
 
 <view wx:if="{{isReady}}">
-
     <view class="section">
         <input data-city="{{city}}" data-longitude="{{longitude}}" data-latitude="{{latitude}}" bindtouchstart="bindInput" placeholder="搜索"
         />
@@ -28,7 +27,7 @@
     </view> -->
     <view class="map_text" wx-if="{{textData}}">
         <view class="weui-panel__bd">
-            <navigator url="../menu/menu" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <navigator url="../menu/menu?id={{textData.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
 
                 <view class="weui-media-box__hd weui-media-box__bd_in-appmsg">
                     <view class="weui-media-box__title">{{textData.name}}</view>

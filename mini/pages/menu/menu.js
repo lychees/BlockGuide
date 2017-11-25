@@ -1,10 +1,13 @@
+const Transactions = require("../api/base.js")
 // pages/menu/menu.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
+    starNum: 0,
+    commentNum: 0,
+    categoryList: [],
     swiperTitle: [{
       text: "点菜",
       id: 1
@@ -78,6 +81,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    Transactions.Transactions.load()
+    this.setData({
+      starNum: Transactions.Transactions.getFromId(options.id).starNum,
+      commentNum: Transactions.Transactions.getFromId(options.id).commentNum,
+      categoryList: Transactions.Transactions.getCommentList()
+    })
+    console.log(this.data.categoryList)
     var that = this;
     wx.request({
       url: "https://www.easy-mock.com/mock/596257bc9adc231f357c4664/restaurant/menu",
