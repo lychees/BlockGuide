@@ -1,0 +1,67 @@
+/**
+ *  Queries for Commodity Trading and Comment business network
+ */
+query selectCommodities {
+  description: "Select all commodities"
+  statement:
+      SELECT org.acme.sample.Commodity
+}
+
+query selectCommoditiesByExchange {
+  description: "Select all commodities based on their main exchange"
+  statement:
+      SELECT org.acme.sample.Commodity
+          WHERE (mainExchange==_$exchange)
+}
+
+query selectCommoditiesByOwner {
+  description: "Select all commodities based on their owner"
+  statement:
+      SELECT org.acme.sample.Commodity
+          WHERE (owner == _$owner)
+}
+
+query selectCommoditiesWithHighQuantity {
+  description: "Select commodities based on quantity"
+  statement:
+      SELECT org.acme.sample.Commodity
+          WHERE (quantity > 60)
+}
+
+query selectComments {
+  description: "Select all comments"
+  statement:
+      SELECT org.acme.sample.Comment
+}
+
+query selectCommentsByOrganizationId {
+  description: "Select all comments based on OrganizationId"
+  statement:
+      SELECT org.acme.sample.Comment
+          WHERE (organizationId==_$organizationId)
+}
+
+query selectCommentsByUserId{
+  description: "Select all comments based on UserId"
+  statement:
+      SELECT org.acme.sample.Comment
+          WHERE (userId==_$userId)
+}
+
+query selectCommentsByScore{
+  description: "Select all comments based on Score"
+  statement:
+      SELECT org.acme.sample.Comment
+          WHERE (score==_$score)
+}
+
+
+query selectCommentsByOwner{
+  description: "Select all Comments based on their owner"
+  statement:
+      SELECT org.acme.sample.Commodity
+          WHERE (owner == _$owner)
+}
+
+
+

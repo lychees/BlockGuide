@@ -1,0 +1,60 @@
+/**
+ * Sample business network definition.
+ */
+namespace org.acme.sample
+
+asset Commodity identified by tradingSymbol {
+    o String tradingSymbol
+    o String description
+    o String mainExchange
+    o Double quantity
+    o Double price
+    --> Trader owner
+}
+
+asset Comment identified by commentId {
+  o String commentId
+  o String organizationId
+  o Integer score
+  o String wechatId
+  o String username
+  o DateTime commentTime
+  o String userId
+  --> Trader owner
+}
+
+abstract participant Trader identified by tradeId {
+    o String tradeId
+}
+
+   
+participant User extends Trader {
+	o String userId
+    o String wechatId
+    o String username
+} 
+
+participant Organization extends Trader {
+	o String organizationId
+    o String organizationName
+    o String briefName
+    o Integer typeFlag
+    o String remark
+    o Integer activeFlag
+    o String longitude
+    o String latitude
+    o String businessHours
+    o String phone
+    o String address
+}
+
+transaction Trade {
+    --> Commodity commodity
+    --> Trader newOwner
+}
+
+transaction UserComment {
+	--> Comment comment
+    --> Trader newOwner
+    o Integer score
+}
