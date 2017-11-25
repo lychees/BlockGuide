@@ -1,11 +1,13 @@
 var amapFile = require('../../libs/amap-wx.js')
 var config = require('../../libs/config.js')
 
+var dataMap = {}
 var markersData = []
 var key = config.Config.key
 var myAmapFun = new amapFile.AMapWX({ key: key })
 Page({
   data: {
+    isReady: false,
     markers: [],
     latitude: '',
     longitude: '',
@@ -19,6 +21,7 @@ Page({
     that.changeMarkerColor(markersData, id)
   },
   loadPoi: function({ location, keywords }) {
+    
     var that = this
     var params = {
       iconPathSelected: '../../img/marker_checked.png',
@@ -28,6 +31,17 @@ Page({
         var poisData = data.poisData
         var markers_new = []
         markersData.forEach(function(item, index) {
+          var star = Math.floor(Math.random()*5) + 1
+          var auth = Boolean(Math.round(Math.random()))
+          dataMap[item.id] = {
+            star: '★★★★★☆☆☆☆☆'.slice(5 -star, 10 - star) + ": " + star,
+            commentNum: Math.floor(Math.random()*(1000+1)),
+            starNum: star,
+            isAuthen: auth,
+            iconPath: auth
+            ? '../../img/marker.png'
+            : '../../img/mapicon_navi_s.ng',
+          }
           markers_new.push({
             id: item.id,
             latitude: item.latitude,
@@ -35,9 +49,13 @@ Page({
             iconPath: item.iconPath,
             width: item.width,
             height: item.height,
-            iconPath: Boolean(Math.round(Math.random()))
+            iconPath: auth
               ? '../../img/marker.png'
               : '../../img/mapicon_navi_s.png',
+          })
+          wx.setStorage({
+            key:"datamap",
+            data:dataMap
           })
         })
         if (markersData.length > 0) {
@@ -82,6 +100,18 @@ Page({
   },
   onLoad: function(e) {
     var that = this
+    this.dataMap = wx.getStorage({
+      key: 'datamap',
+      success: function(res) {
+          console.log(res.data)
+      } 
+    })
+    this.setData({
+         isReady: true,
+        })
+    if(!dataMap){
+      dataMap = {}
+    }
     this.loadPoi({
       keywords: e.keywords,
     })
@@ -139,10 +169,33 @@ Page({
   },
   showMarkerInfo: function(data, i) {
     var that = this
+    var star = Math.floor(Math.random() * 5) + 1
+    if(!dataMap[i]){
+      var auth = Boolean(Math.round(Math.random())) 
+      console.log(auth)
+      dataMap[i] = {
+        star: '★★★★★☆☆☆☆☆'.slice(5 - star, 10 - star) + ": " + star,
+        starNum: star,
+        commentNum: Math.floor(Math.random()*(1000+1)),
+        isAuthen: auth,
+        iconPath: auth
+        ? '../../img/marker.png'
+        : '../../img/mapicon_navi_s.png',
+      }
+      try {
+        wx.setStorageSync('datamap', dataMap)
+      } catch (e) {    
+
+      }
+    }
     that.setData({
       textData: {
         name: data[i].name,
         desc: data[i].address,
+        star: dataMap[i].star,
+        commentNum: dataMap[i].commentNum,
+        isAuthen: dataMap[i].isAuthen,
+        starNum: dataMap[i].starNum, 
       },
     })
   },
