@@ -1,0 +1,31 @@
+<view class="page">
+    <view wx:if="{{stage==='paying'}}">
+        <view class="page__hd">
+        </view>
+        <view class="page__bd">
+            <view class="icon-box">
+                <icon type="waiting" size="93"></icon>
+                <view class="icon-box__ctn">
+                    <view class="icon-box__title">付费中</view>
+                    <view class="icon-box__desc">等待入链...</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{stage==='paid'}}">
+        <view class="page__hd">
+        </view>
+        <view class="page__bd">
+            <view class="icon-box">
+                <icon type="success" size="93"></icon>
+                <view class="icon-box__ctn">
+                    <view class="icon-box__title">付费成功</view>
+                    <view class="icon-box__desc">
+                        本次消费你获得了
+                        <view>{{point}} 积分</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

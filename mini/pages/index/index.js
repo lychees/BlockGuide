@@ -85,6 +85,7 @@ Page({
     this.loadPoi({
       keywords: e.keywords,
     })
+    wx.navigateTo({ url: '/pages/purchase/purchase' })
   },
   bindOrient: function(e) {
     var that = this

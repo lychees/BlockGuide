@@ -1,0 +1,23 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="page__bd">
+
+    <view class="weui-cells__title"></view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">金额</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" bindinput="bindInputChange" placeholder="请向服务员咨询金额" />
+        </view>
+        <view wx-if="{{amountHasError}}" class="weui-cell__ft">
+          <icon type="warn" size="23" color="#E64340"></icon>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" bindtap="pay" disabled="{{!amount || amountHasError}}">确定支付</button>
+    </view>
+  </view>
+</view>

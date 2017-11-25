@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/purchase/input",
+    "pages/purchase/purchase",
     "pages/shop/shop",
     "pages/logs/logs",
     "weui/example/index",
