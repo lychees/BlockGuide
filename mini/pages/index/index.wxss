@@ -25,26 +25,26 @@
   padding: 0 5px;
 }
 .map_container {
-  width: auto;
-  height: 300px;
-  /* position: absolute;
+  /* width: auto;
+  height: 300px; */
+  position: absolute;
   top: 42px;
-  bottom: 0px;
+  bottom: 80px;
   left: 0;
-  right: 0; */
+  right: 0;
 }
 .map {
   width: 100%;
   height: 100%;
 }
 .map_text {
-  /* position: absolute;
+  position: absolute;
   left: 0;
   right: 0;
   bottom: 0px;
   height: 80px;
   background: #fff;
-  padding: 0 15px; */
+  padding: 0 15px;
 }
 text {
   margin: 5px 0;

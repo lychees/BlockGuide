@@ -48,5 +48,15 @@
             </view>
         </view>
     </view>
+    <view class="map_text" wx-if="{{!textData}}">
+        <view class="weui-panel__bd" bindtap="bindNavigateMenu">
+            <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                <view class="weui-media-box__hd weui-media-box__bd_in-appmsg">
+                    <view class="weui-media-box__title">欢迎来到中信联盟商圈</view>
+                    <view class="weui-media-box__desc">点击商家查看点评</view>
+                </view>
+            </view>
+        </view>
+    </view>
 
 </view>
