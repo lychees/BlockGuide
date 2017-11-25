@@ -3,6 +3,10 @@
     "pages/index/index",
     "pages/shop/shop",
     "pages/logs/logs",
+    "pages/menu/menu",
+    "pages/order/order",
+    "pages/my/my",
+    "pages/home/home",
     "weui/example/index",
 
     "weui/example/button/button",
