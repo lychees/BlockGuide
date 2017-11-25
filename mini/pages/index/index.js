@@ -76,21 +76,24 @@ Page({
         var markers_new = []
         markersData.forEach(function(item, index) {
           var star = Math.floor(Math.random() * 5) + 1
-          var auth = Boolean(Math.round(Math.random()))
-          dataMap[item.id] = {
-            star: '★★★★★☆☆☆☆☆'.slice(5 - star, 10 - star) + ': ' + star,
-            commentNum: Math.floor(Math.random() * (1000 + 1)),
-            starNum: star,
-            isAuthen: auth,
-            iconPath: auth ? '../../img/xin.png' : '../../img/marker.ng',
+          var auth = false
+          if(!dataMap[poisData[item.id].id]){
+            // console.log(poisData[item.id].id)
+            auth = Boolean(Math.round(Math.random()))
+            dataMap[poisData[item.id].id] = {
+              star: '★★★★★☆☆☆☆☆'.slice(5 - star, 10 - star) + ': ' + star,
+              commentNum: Math.floor(Math.random() * (1000 + 1)),
+              starNum: star,
+              isAuthen: auth,
+              iconPath: auth ? '../../img/xin.png' : '../../img/marker.ng',
+            }
+          }else{
+              auth = dataMap[poisData[item.id].id].isAuthen
           }
           item.auth = auth
           markers_new.push(marketData(item))
-          wx.setStorage({
-            key: 'datamap',
-            data: dataMap,
-          })
         })
+        wx.setStorageSync('datamap', dataMap)
         if (markersData.length > 0) {
           that.setData({
             markers: markers_new,
@@ -224,7 +227,9 @@ Page({
   showMarkerInfo: function(data, i) {
     var that = this
     var star = Math.floor(Math.random() * 5) + 1
+    console.log(data)
     if (!dataMap[i]) {
+      
       var auth = Boolean(Math.round(Math.random()))
       dataMap[i] = {
         star: '★★★★★☆☆☆☆☆'.slice(5 - star, 10 - star) + ': ' + star,
