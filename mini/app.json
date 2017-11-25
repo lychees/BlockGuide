@@ -1,6 +1,4 @@
 {
-  "window": {
-    "backgroundTextStyle": "light",
   "pages":[
     "pages/index/index",
     "pages/shop/shop",
