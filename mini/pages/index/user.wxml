@@ -2,13 +2,14 @@
 
   <view class="page__hd">
     <view class="page__desc">用户通过中信联盟消费记录</view>
+    <view class="page__desc">用户当前积分为 {{balance}}</view>
   </view>
   <view class="page__bd">
     <view class="icon-box">
       <icon type="info" size="93"></icon>
       <view class="icon-box__ctn">
         <view class="icon-box__title">提示</view>
-        <view class="icon-box__desc">尚未开发</view>
+        <view class="icon-box__desc">消费记录尚未开发</view>
       </view>
     </view>
   </view>
