@@ -1,10 +1,5 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/inputtips/input",
-    "pages/poi/poi"
-  ],
+  "pages": ["pages/index/index", "pages/logs/logs", "pages/inputtips/input"],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

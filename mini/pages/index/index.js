@@ -2,6 +2,8 @@ var amapFile = require('../../libs/amap-wx.js')
 var config = require('../../libs/config.js')
 
 var markersData = []
+var key = config.Config.key
+var myAmapFun = new amapFile.AMapWX({ key: key })
 Page({
   data: {
     markers: [],
@@ -16,10 +18,8 @@ Page({
     that.showMarkerInfo(markersData, id)
     that.changeMarkerColor(markersData, id)
   },
-  onLoad: function(e) {
+  loadPoi: function({ location, keywords }) {
     var that = this
-    var key = config.Config.key
-    var myAmapFun = new amapFile.AMapWX({ key: key })
     var params = {
       iconPathSelected: '../../img/marker_checked.png',
       iconPath: '../../img/marker.png',
@@ -47,12 +47,14 @@ Page({
           that.setData({
             city: poisData[0].cityname || '',
           })
-          that.setData({
-            latitude: markersData[0].latitude,
-          })
-          that.setData({
-            longitude: markersData[0].longitude,
-          })
+          if (!location) {
+            that.setData({
+              latitude: markersData[0].latitude,
+            })
+            that.setData({
+              longitude: markersData[0].longitude,
+            })
+          }
           that.showMarkerInfo(markersData, 0)
         } else {
           that.setData({
@@ -67,11 +69,50 @@ Page({
         // wx.showModal({title:info.errMsg})
       },
     }
-    if (e && e.keywords) {
-      params.querykeywords = e.keywords
+    if (keywords) {
+      params.querykeywords = keywords
+    }
+    if (location) {
+      params.location = location
+    } else {
+      params.location = '121.375873,31.176083'
     }
 
     myAmapFun.getPoiAround(params)
+  },
+  onLoad: function(e) {
+    var that = this
+    this.loadPoi({
+      keywords: e.keywords,
+    })
+  },
+  bindOrient: function(e) {
+    var that = this
+    wx.getLocation({
+      type: 'gcj02',
+      success: function(res) {
+        that.setData({
+          latitude: res.latitude,
+        })
+        that.setData({
+          longitude: res.longitude,
+        })
+        that.setData({
+          city: '北京市',
+        })
+        that.loadPoi({
+          location: [res.latitude, res.longitude].join(','),
+        })
+      },
+      fail: function() {
+        that.setData({
+          textData: {
+            name: '抱歉，未找到结果',
+            desc: '',
+          },
+        })
+      },
+    })
   },
   bindInput: function(e) {
     var that = this
