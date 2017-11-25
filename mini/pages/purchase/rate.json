@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "评价赢积分",
   "usingComponents": {
     "multiple-rate": "/pages/multiple-rate/multiple-rate"
   }
