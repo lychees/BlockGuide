@@ -30,8 +30,9 @@ Page({
   },
   bindSearch: function(e) {
     var keywords = e.target.dataset.keywords
-    var url = '../index/index?keywords=' + keywords
-    wx.redirectTo({
+    var url = '/pages/index/index?keywords=' + keywords
+    console.log(url);
+    wx.reLaunch({
       url: url,
     })
   },

@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/index/user",
+    "pages/inputtips/input",
     "pages/purchase/input",
     "pages/purchase/purchase",
     "pages/purchase/rate",
