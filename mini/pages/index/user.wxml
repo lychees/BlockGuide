@@ -2,7 +2,7 @@
 
   <view class="page__hd">
     <view class="page__desc">用户通过中信联盟消费记录</view>
-    <view class="page__desc">用户当前积分为 {{balance}}</view>
+    <view class="page__desc">用户当前中信币余额为 {{balance}}</view>
   </view>
   <view class="page__bd">
     <view class="icon-box">

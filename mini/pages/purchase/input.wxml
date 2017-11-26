@@ -17,7 +17,7 @@
 
        <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
-          <view class="weui-label">使用积分</view>
+          <view class="weui-label">使用中信币</view>
         </view>
         <view class="weui-cell__bd">
           <input class="weui-input" bindinput="bindInputChange2" placeholder="" value="{{credit}}" />
@@ -28,7 +28,7 @@
       </view> 
     </view>
 
-    <view class="weui-cells__tips">剩余可使用积分为{{balance}}</view>
+    <view class="weui-cells__tips">剩余可使用中信币为{{balance}}</view>
 
     <view class="weui-btn-area">
       <button class="weui-btn" type="primary" bindtap="pay" disabled="{{!amount || amountHasError}}">确定支付</button>
